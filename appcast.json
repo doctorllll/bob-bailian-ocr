@@ -2,6 +2,14 @@
   "identifier": "com.schweppessoda.bailian.ocr",
   "versions": [
     {
+      "version": "2.3.2",
+      "desc": "fork 修复：识别 Bob 运行时传入的图片格式（TIFF/BMP/HEIC），格式检测改为 base64 前缀双通道，不再依赖桥接对象的 length 属性；修复真实 Bob 中 OCR 100% 报 Unsupported image format 的问题。",
+      "sha256": "98cd8734d1f7e6092b1d2e9e8a924cf0c33547c249c170a16f225694084c9e2c",
+      "url": "https://github.com/doctorllll/bob-bailian-ocr/releases/download/v2.3.2/bob-bailian-ocr-2.3.2.bobplugin",
+      "minBobVersion": "1.8.0",
+      "timestamp": 1789398516607
+    },
+    {
       "version": "2.3.1",
       "desc": "修复流式服务错误误报成功，统一 Core 解析与开发回退；与共享源码补丁版本同步。",
       "sha256": "df1193bb17c73bfc4f092d4ae924ad6a053403031ac1286ad92cbaa24eb7828a",

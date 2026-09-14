@@ -1,5 +1,14 @@
 # Bob 百炼OCR
 
+> **Fork 说明（v2.3.2）**：本仓库 fork 自 [SchweppesSoda/bob-bailian-ocr](https://github.com/SchweppesSoda/bob-bailian-ocr) v2.3.1，仅修复 OCR 插件在真实 Bob 应用中 100% 报 `Unsupported image format` 的问题：
+>
+> - `lib/image.js` 格式检测改为双通道：优先二进制魔数，回退到 base64 前缀（`iVBORw0`=PNG、`SUkq`=TIFF 等），不再依赖 Bob 桥接对象上不可靠的 `length` 属性；同时兼容官方文档所述的纯 base64 字符串传参形态。
+> - 新增 TIFF / BMP / HEIC 识别（阿里云百炼视觉接口原生支持，4K 分辨率以下）。
+> - 已在 Bob 1.19 + qwen3.5-ocr 实测端到端通过（AppleScript `ocrImage` 通道）。
+> - 未识别格式时错误消息附带 base64 头部片段，便于定位。
+>
+> 插件 identifier 保持 `com.schweppessoda.bailian.ocr` 不变，从上游 v2.3.1 直接安装本 fork 的包可保留全部已有配置。
+
 [![CI](https://github.com/SchweppesSoda/manggo-bailian-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/SchweppesSoda/manggo-bailian-plugin/actions/workflows/ci.yml)
 
 本仓库是 Bob 百炼OCR的薄发布仓库，维护当前运行时、Release 和 appcast。共同源码与构建工具位于 [manggo-bailian-plugin](https://github.com/SchweppesSoda/manggo-bailian-plugin)，由该源码仓库构建以下三个原生安装包：
